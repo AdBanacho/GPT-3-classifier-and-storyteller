@@ -1,6 +1,7 @@
 import openai
+from interface import api_key
 
-openai.api_key = "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"
+openai.api_key = api_key
 
 
 def gpt_3(message, temp, prompt):

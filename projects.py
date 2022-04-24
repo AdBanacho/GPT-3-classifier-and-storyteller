@@ -1,10 +1,13 @@
 import streamlit as st
 import config as c
-from gpt import gpt_3_classification
 
 key = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 
+
 class Interface:
+    def __init__(self, GPT):
+        self.gpt = GPT
+
     def run(self):
         st.sidebar.header("**Realised projects:**")
         for no, line in enumerate(c.PROJECTS):
@@ -35,7 +38,7 @@ class Interface:
         query = st.text_input("Text to test")
         if st.button("Run") and query != "":
             with st.spinner("Processing..."):
-                st.write(gpt_3_classification(query, labels, examples))
+                st.write(self.gpt.gpt_3_classification(query, labels, examples))
             st.success('Done')
             rp += 1
             col1, col2, col3 = st.columns(3)

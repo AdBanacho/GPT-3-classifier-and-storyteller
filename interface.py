@@ -1,5 +1,6 @@
 import projects
 import story
+import thoughts
 import streamlit as st
 from gpt import Gpt
 import config as c
@@ -12,7 +13,8 @@ st.set_page_config(
 
 PAGES = {
     "Story": story,
-    "Projects": projects
+    "Projects": projects,
+    "Thoughts": thoughts
 }
 
 name = st.text_input("Please, write your name")
